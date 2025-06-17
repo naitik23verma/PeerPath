@@ -1,0 +1,134 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}.hero-section {
+  /* existing styles... */
+  overflow: hidden;
+}
+
+.hero {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #000000, #1a0a52, #3d20b3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  color: #a78bfa;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #c4b5fd;
+  text-shadow: 0 0 12px #7c3aed;
+}
+
+.hero-content h1 span {
+  color: #a78bfa;
+  text-shadow: 0 0 18px #c4b5fd;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #d9d0f3;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 6px #3d20b3;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn.primary {
+  background: #a78bfa;
+  color: #12002f;
+  box-shadow: 0 0 12px #a78bfa;
+}
+
+.btn.primary:hover {
+  background: #c4b5fd;
+  box-shadow: 0 0 22px #c4b5fd;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: #c4b5fd;
+  border: 2px solid #c4b5fd;
+}
+
+.btn.secondary:hover {
+  background: #c4b5fd;
+  color: #12002f;
+  box-shadow: 0 0 12px #a78bfa;
+}
+
+
+.highlight-word {
+  color: #c4b5fd;
+  font-weight: 800;
+  position: relative;
+  margin: 0 0.5rem;
+  text-shadow: 0 0 12px #a78bfa;
+}
+.heading-container {
+  position: relative;
+  display: inline-block;
+}
+
+.curved-arrow {
+  position: absolute;
+  top: -60px;
+  left: -30px;
+  width: 350px;
+  height: 100px;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: drawCurve 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px #a78bfa);
+  z-index: 0;
+}
+
+@keyframes drawCurve {
+  from {
+    stroke-dashoffset: 300;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.highlight-word {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 1rem;
+  color: #c4b5fd;
+  position: relative;
+  z-index: 1;
+}
+.curved-arrow {
+  position: absolute;
+  top: -60px;
+  left: -30px;
+  width: 350px;
+  height: 100px;
+  z-index: 0;
+  filter: drop-shadow(0 0 6px #a78bfa);
+}

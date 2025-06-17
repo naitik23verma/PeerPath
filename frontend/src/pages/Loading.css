@@ -1,0 +1,107 @@
+.loading-screen {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #000000, #1a0a52,#3d20b3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #a78bfa;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+}
+
+/* SVG logo size & pulse */
+.logo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 10px #7c3aed);
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Stroke dashoffset animation to draw circle */
+.logo-circle {
+  stroke-dashoffset: 188.4;
+  animation: drawStroke 1.5s forwards ease-out;
+  animation-delay: 0s;
+}
+
+/* Stroke dashoffset animation to draw check path */
+.logo-check {
+  stroke-dashoffset: 64;
+  animation: drawStroke 1.5s forwards ease-out;
+  animation-delay: 1.5s;
+}
+
+/* Draw stroke animation */
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Glow pulse */
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px #a78bfa);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #c4b5fd);
+  }
+}
+
+/* Animated letters */
+.animated-name span {
+  display: inline-block;
+  font-size: 3.5rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-name: fadeSlideIn;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  color: #c4b5fd;
+  user-select: none;
+}
+
+/* Letters fade and slide in */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading dots container */
+.loading-dots {
+  margin-top: 1.5rem;
+  font-size: 3rem;
+  color: #a78bfa;
+  user-select: none;
+}
+
+/* Individual dots */
+.loading-dots span {
+  opacity: 0;
+  animation-name: blinkDot;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  display: inline-block;
+  margin: 0 6px;
+}
+
+/* Dot blinking animation */
+@keyframes blinkDot {
+  0%, 80%, 100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+
+
