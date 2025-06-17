@@ -29,3 +29,7 @@ app.listen(PORT,()=>{
 app.get("/",(req,res)=>{
     res.send("PeerPath backend is running");
 })
+
+
+app.use("/api/users",require("./routes/userRoutes"));
+app.use("/api/doubts",require("./routes/doubtRoutes"));

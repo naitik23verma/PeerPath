@@ -28,6 +28,10 @@ const doubtSchema=new mongoose.Schema({
         ref:"User",
         default:null,
     },
+    isResolved:{
+        type:Boolean,
+        default:false,
+    }
     
 
 });
