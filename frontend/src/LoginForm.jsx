@@ -6,20 +6,55 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 export default function LoginForm(){
-    let [formdata, setformdata] = useState({username:"", password: ""});
+
+
+    let [formdata, setformdata] = useState({name:"",
+    email:"",
+    password:"",
+    field:"",
+    bio:"",
+    isAvailable:true,
+    expertiseLevel:"",
+    socialLinks:{
+        github:"",
+        linkedin:"",
+        portfolioImage:""
+    },
+    profileImage:""});
 
     function updateFormdata(e){
         setformdata({...formdata, [e.target.name ]: e.target.value});
     }
-    function handleLogin(){
-        if(formdata.username === "" || formdata.password === ""){
+    async function handleLogin(){
+        if(formdata.email === "" || formdata.password === ""){
             alert("Please fill all the fields");
             return; 
         }
-        else{
-            console.log(formdata);
+        
+        try{
+            
+            const response =await fetch("http://localhost:8080/api/users/login",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    email:formdata.email,
+                    password:formdata.password
+                })
+            });
+            const data=await response.json();
+            if (!response.ok){
+                alert(data.message || "Login failed");
+                return;
+            }
+            localStorage.setItem("user",JSON.stringify(data.user));
             alert("Login Successful");
-            setformdata({username:"", password: ""}); 
+            setformdata({email:"",password:""});
+
+            window.location.href="/";
+        }catch(error){
+            alert("Server error , please try again later!")
         }
     }
     return(
@@ -37,9 +72,9 @@ export default function LoginForm(){
 
             <div className="Right-part">
                  <h1>Login</h1>
-                 <div className="usernameInput">
-                    <input type="text" placeholder="Username" id="Username" name="username" value={formdata.username} onChange={updateFormdata} ></input>
-                    <div id="usericondiv"><label htmlFor="Username"  ><PersonIcon id="usericon" fontSize="large" ></PersonIcon></label></div>
+                 <div className="emailInput">
+                    <input type="text" placeholder="email" id="email" name="email" value={formdata.email} onChange={updateFormdata} ></input>
+                    <div id="usericondiv"><label htmlFor="email"  ><PersonIcon id="usericon" fontSize="large" ></PersonIcon></label></div>
                     
                  </div>
                  <div className="passwordInput">

@@ -3,7 +3,7 @@ const mongoose=require("mongoose");
 const userSchema=new mongoose.Schema({
     name:{
         type:String,
-        required:true,
+        // required:true,
     },
     email:{
         type:String,
@@ -16,7 +16,7 @@ const userSchema=new mongoose.Schema({
     },
     field:{
         type:String,
-        required:true,
+        // required:true,
     },
     bio:{
         type:String,
@@ -37,7 +37,7 @@ const userSchema=new mongoose.Schema({
     },
     profileImage:{
         type:String,
-        required:true,
+        // required:true,
     }
 
 })

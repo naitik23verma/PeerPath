@@ -5,6 +5,10 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 export default function RegistrationForm(){
+
+    
+
+
     let [data, setdata] = useState({scholarNum:"", issue: ""});
 
     function updateValue(e){
@@ -17,6 +21,7 @@ export default function RegistrationForm(){
             return;
         }
         else{
+            handleSignup();
             console.log(data);
             alert("Response Submitted Successfully");
             setdata({scholarNum:"", issue: ""}); 

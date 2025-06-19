@@ -1,21 +1,7 @@
-// import './App.css'
-// import LoginForm from './LoginForm.jsx';
-// import RegistrationForm from './RegistrationForm.jsx';
-// import Loading from './pages/Loading';
 
-import Hero from "./pages/Hero"
-
-
+// import LoginForm from "./LoginForm.jsx";
+import FrontPage from "./pages/FrontPage.jsx";
 function App() {
-
-  return (
-    <Hero/>
-    // <Loading/>
-    // <>
-    // <LoginForm />
-    // {/* <RegistrationForm /> */}
-    // </>
-  )
+  return ( <FrontPage/> ) ;
 }
-
 export default App

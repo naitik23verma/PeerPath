@@ -7,8 +7,7 @@ router.post("/register",async(req,res)=>{
     try{
         const {name,email,password,bio,isAvailable,expertiseLevel,socialLinks,profileImage}=req.body;
         const existingUser=await User.findOne({email});
-        if (existingUser){return
-                res.status(400).json({message:"User already exist"});}
+        if (existingUser){return res.status(400).json({message:"User already exist"});}
 
                 const newUser=new User({
                     name,
@@ -29,23 +28,30 @@ router.post("/register",async(req,res)=>{
 
 
 //Login User
-router.post("/login",async(req,res)=>{
-    const {email,password}=req.body;
+router.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+    console.log("Login attempt:", email, password);
 
-    const user=await User.findOne({email});
-    if (!user || user.password!==password){
-        return 
-        res.status(400).json({message:"Invalid credentials"});
+    const user = await User.findOne({ email });
+    if (!user) {
+        console.log("User not found");
+        return res.status(400).json({ message: "Invalid credentials" });
     }
-    res.status(200).json({message:"Login successfull",user});
 
-})
+    if (user.password !== password) {
+        console.log("Wrong password");
+        return res.status(400).json({ message: "Invalid credentials" });
+    }
+
+    console.log("Login successful for:", user.name);
+    res.status(200).json({ message: "Login successful", user });
+});
 
 
 //Get all users
 router.get("/",async(req,res)=>{
     try{
-        const users=awaitUser.find();
+        const users=await User.find();
         res.status(200).json(users);
     }catch(error){
         res.status(500).json({message:error.message});
